@@ -24,3 +24,8 @@ Data Structures
 
 class in js
 -syntaxial sugar prototype in bts.. constructor.. instance methods on individual instances eg [1,2].push(5)
+-static keyword for class methods.. Student.enrollStudents(student1,student2)..  eg Point.distance(p1,p2)
+
+Singly Linked List 
+ -ds that contains head,tail and length property
+ -sll consits of nodes each node has a value and a pointer to another node or null
