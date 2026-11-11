@@ -28,13 +28,20 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
-  print() {
-    let temp = this.head;
-    while (temp !== null) {
-      console.log(temp.val);
-      temp = temp.next;
-    }
+  pop() {
+    if (!this.head) return undefined;
+    var current = this.head;
+    var newTail = current;
+    while (current.next !== null) {}
   }
+
+  // print() {
+  //   let temp = this.head;
+  //   while (temp !== null) {
+  //     process.stdout.write(temp.val + " ");
+  //     temp = temp.next;
+  //   }
+  // }
 }
 
 // let first = new Node(3)
@@ -48,3 +55,4 @@ list.push(27);
 list.push(28);
 
 console.log(list.print());
+console.log("length:" + list.length);
