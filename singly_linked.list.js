@@ -32,7 +32,29 @@ class SinglyLinkedList {
     if (!this.head) return undefined;
     var current = this.head;
     var newTail = current;
-    while (current.next !== null) {}
+    while (current.next) {
+      newTail = current;
+      current = current.next;
+    }
+    this.tail = newTail;
+    this.tail.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return current;
+  }
+  shift() {
+    //return first el
+    if (!this.head) return undefined;
+    var currentHead = this.head;
+    this.head = currentHead.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return currentHead;
   }
 
   // print() {
@@ -49,10 +71,12 @@ class SinglyLinkedList {
 ///first.next.next = new Node(5)
 
 let list = new SinglyLinkedList();
-list.push(25);
-list.push(26);
-list.push(27);
-list.push(28);
+list.push(10);
+list.push(20);
+list.push(30);
+list.push(40);
 
-console.log(list.print());
-console.log("length:" + list.length);
+console.log(list.pop());
+console.log(list);
+console.log(list.shift());
+console.log(list);
