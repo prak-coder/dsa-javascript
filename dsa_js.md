@@ -29,3 +29,5 @@ class in js
 Singly Linked List 
  -ds that contains head,tail and length property
  -sll consits of nodes each node has a value and a pointer to another node or null
+ -push() add value at end.. pop() to get val from end.. shift to remove val from start..unshift to add value to start
+ -get(index)-- returns the node at index.. set(index,val)..uses set to find node and replace with val

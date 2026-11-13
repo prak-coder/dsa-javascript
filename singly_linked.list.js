@@ -18,7 +18,6 @@ class SinglyLinkedList {
     var newNode = new Node(val);
 
     if (!this.head) {
-      newNode.next = null;
       this.head = newNode;
       this.tail = this.head;
     } else {
@@ -56,7 +55,39 @@ class SinglyLinkedList {
     }
     return currentHead;
   }
+  unshift(val) {
+    var newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
 
+    this.length++;
+    return this;
+  }
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    var count = 0;
+    var current = this.head;
+    while (count !== index) {
+      current = current.next;
+      count++;
+    }
+    return current;
+  }
+  set(index, val) {
+    var foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.val = val;
+      return true;
+    }
+    return false;
+  }
+
+  //10 20 30 0
   // print() {
   //   let temp = this.head;
   //   while (temp !== null) {
@@ -76,7 +107,12 @@ list.push(20);
 list.push(30);
 list.push(40);
 
-console.log(list.pop());
-console.log(list);
-console.log(list.shift());
-console.log(list);
+console.log(list.unshift(5));
+console.log(list.unshift(4));
+console.log(list.unshift(3));
+console.log(list.get(0));
+console.log(list.get(list.length - 1));
+console.log(list.get(-5));
+console.log(list.get(list.length + 1));
+console.log(list.set(1, "troy"));
+console.log(list.print());
