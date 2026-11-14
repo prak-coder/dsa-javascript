@@ -86,6 +86,24 @@ class SinglyLinkedList {
     }
     return false;
   }
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === 0) {
+      this.unshift(val);
+      return true;
+    }
+    if (index === this.length) {
+      this.push(val);
+      return true;
+    }
+    var newNode = new Node(val);
+    var prev = this.get(index - 1);
+    var temp = prev.next;
+    prev.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    return true;
+  }
 
   //10 20 30 0
   // print() {
@@ -106,13 +124,8 @@ list.push(10);
 list.push(20);
 list.push(30);
 list.push(40);
-
-console.log(list.unshift(5));
-console.log(list.unshift(4));
-console.log(list.unshift(3));
-console.log(list.get(0));
-console.log(list.get(list.length - 1));
-console.log(list.get(-5));
-console.log(list.get(list.length + 1));
-console.log(list.set(1, "troy"));
-console.log(list.print());
+console.log(list.insert(-1, 5));
+console.log(list.insert(100, 5));
+console.log(list.insert(0, 5));
+console.log(list.insert(5, 50));
+console.log(list.insert(2, 15));
